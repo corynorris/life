@@ -13,7 +13,6 @@ class Grid extends Component {
   }
 
   render() {
-    console.log(this.props.data);
     const rows = this.props.data.map((row,y) => {
       return <tr key={y}> 
         {row.map((state, x) => {
@@ -27,7 +26,7 @@ class Grid extends Component {
         })}
       </tr>
     });
-    console.log(rows);
+
     return (
       <table className="center">
         <tbody>

@@ -1,6 +1,3 @@
-// States
-
-
 const range = (size, val) => {
   return Array(size).fill(0);
 }
@@ -14,7 +11,7 @@ export function countNeighbours(grid, x, y) {
   for (let iy = startY; iy <= endY; iy++) {
     for (let ix = startX; ix <= endX; ix++) {
       if ((ix !== x || iy !== y) && grid[iy][ix] === 1) {
-        count = count + 1;
+        count += 1;
       }
     }
   }
