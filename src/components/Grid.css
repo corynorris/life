@@ -1,0 +1,10 @@
+.center {
+  margin: 0px auto;
+  text-align: center;
+}
+
+table, td {
+  border-collapse: collapse;
+  border: 1px solid #bdc3c7;
+}
+

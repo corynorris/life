@@ -1,0 +1,12 @@
+.born {
+  background-color: #2ecc71;
+}
+
+.alive {
+  background-color: #16a085;
+}
+
+td {
+  width: 15px;
+  height: 15px;
+}
