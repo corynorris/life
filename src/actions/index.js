@@ -24,9 +24,10 @@ export const stepForward = () => {
   }
 }
 
-export const play = () => {
+export const play = (intervalId) => {
   return {
     type: 'PLAY',
+    intervalId
   }
 }
 
