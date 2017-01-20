@@ -1,5 +1,15 @@
+export const states = {
+  dead: 0,
+  alive: 1,
+  born: 2,
+}
+
 const range = (size, val) => {
-  return Array(size).fill(0);
+  return Array(size).fill(val);
+}
+
+export function isAlive(grid, x, y) {
+  return grid[y][x] !== states.dead;
 }
 
 export function countNeighbours(grid, x, y) {
@@ -10,7 +20,7 @@ export function countNeighbours(grid, x, y) {
   let count = 0;
   for (let iy = startY; iy <= endY; iy++) {
     for (let ix = startX; ix <= endX; ix++) {
-      if ((ix !== x || iy !== y) && grid[iy][ix] === 1) {
+      if ((ix !== x || iy !== y) && isAlive(grid, ix, iy)) {
         count += 1;
       }
     }
@@ -18,7 +28,7 @@ export function countNeighbours(grid, x, y) {
   return count;
 }
 
-export function makeGrid(width, height, val) {
+export function makeGrid(width, height, val = 0) {
   return range(height, val).map((col) => {
     return range(width, val).map((row)=> {
       return val;
@@ -31,6 +41,8 @@ export function updateGrid(grid) {
   const height = grid.length;
   let neighboursGrid = makeGrid(width, height, 0);
 
+
+
   for (let y = 0; y < height; y++) {
     for (let x = 0; x < width; x++) {
       neighboursGrid[y][x] = countNeighbours(grid, x, y);
@@ -39,11 +51,17 @@ export function updateGrid(grid) {
 
   for (let y = 0; y < height; y++) {
     for (let x = 0; x < width; x++) {
+      // Update born to alive
+      if (grid[y][x] === states.born) {
+        grid[y][x] = states.alive;
+      }
+
+      // Change behaviour based on neighbours      
       const neighbours = neighboursGrid[y][x];
       if (neighbours === 0 || neighbours === 1 || neighbours > 3) {
-        grid[y][x] = 0;  
-      } else if (neighbours === 3) {
-        grid[y][x] = 1;  
+        grid[y][x] = states.dead;  
+      } else if (neighbours === 3 && grid[y][x] !== states.alive) {
+        grid[y][x] = states.born;  
       } 
 
     }

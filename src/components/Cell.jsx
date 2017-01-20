@@ -1,15 +1,24 @@
 import React from 'react';
 import './Cell.css';
 
-const Cell = ({handleClick, state}) => (
+function getClass(state) {
+  switch(state) {
+    case 0: return 'dead';
+    case 1: return 'alive';
+    case 2: return 'born';
+    default: return null;
+  }
+}
+
+const Cell = ({onCellClick, state}) => (
     <td
-      onClick={handleClick}
-      className={state ? 'alive' : 'dead'} 
+      onClick={onCellClick}
+      className={getClass(state)} 
     />
 );
 
 Cell.propTypes = {
-  handleClick: React.PropTypes.func.isRequired,
+  onCellClick: React.PropTypes.func.isRequired,
   state: React.PropTypes.number.isRequired
 };
 

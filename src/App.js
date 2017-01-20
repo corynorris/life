@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import Grid from './components/Grid';
+import Controls from './components/Controls';
 import './App.css';
 
-import {makeGrid} from './core/core.js';
-
-const testGrid = makeGrid(30,20,0);
 class App extends Component {
   render() {
     return (
@@ -12,10 +10,12 @@ class App extends Component {
         <h1 className="App-intro">
           The Game of Life
         </h1>
-        <Grid data={testGrid} />
+        <Grid />
+        <Controls />
       </div>
     );
   }
 }
+
 
 export default App;

@@ -1,4 +1,4 @@
-import {makeGrid, countNeighbours, updateGrid} from './core.js';
+import {makeGrid, countNeighbours, updateGrid, states} from './core.js';
 
 describe('makeGrid', () => {
   it('fills correctly when numbers are used', () => {
@@ -67,6 +67,6 @@ describe('updateGrid', () => {
   it('kills a cell if it has more than 3 neighbours, births a cell if it has exactly 3', () => {
     const grid = [[1,0,1],[0,1,0],[1,0,1]];
     const nextGrid = updateGrid(grid);
-    expect(nextGrid).toEqual([[0,1,0],[1,0,1],[0,1,0]]);
+    expect(nextGrid).toEqual([[0,states.born,0],[states.born,0,states.born],[0,states.born,0]]);
   })
 })

@@ -1,27 +1,20 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import { spawnCell } from '../actions'
 import Cell from './Cell';
 import './Grid.css'
 
 class Grid extends Component {
-  constructor(props) {
-    super(props);
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick(x, y) {
-    console.log(x,y);
-  }
-
   render() {
-    const rows = this.props.data.map((row,y) => {
-      return <tr key={y}> 
+    const rows = this.props.cells.map((row, y) => {
+      return <tr key={y}>
         {row.map((state, x) => {
           return (
             <Cell
               key={x}
-              state={state}
-              handleClick={this.handleClick.bind(this, x, y)}
-            />
+              state={this.props.cells[y][x]}
+              onCellClick={this.props.onCellClick.bind(this, x, y)}
+              />
           );
         })}
       </tr>
@@ -35,10 +28,25 @@ class Grid extends Component {
       </table>
     );
   }
-} 
+}
 
 Grid.propTypes = {
   data: React.PropTypes.array
 };
 
-export default Grid;
+
+const mapStateToProps = ({cells}) => {
+  return {
+    cells
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onCellClick: (x,y) => {
+      dispatch(spawnCell(x,y))
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Grid);
