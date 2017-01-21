@@ -6,6 +6,9 @@ import { stepForward, makeGrid, makeRandomGrid, play } from '../actions'
 
 
 class Controls extends Component {
+  componentDidMount() {
+    this.onPlay();
+  }
   onPlay() {
     if (this.props.interval === 0) {
       const id = setInterval(this.props.onNextClick, 200);

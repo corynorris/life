@@ -1,7 +1,7 @@
-import {makeGrid, updateGrid, states} from '../core/core.js';
+import {makeGrid, makeRandomGrid, updateGrid, states} from '../core/core.js';
 import constants from '../constants';
 
-const startingCells = makeGrid(constants.GRID_WIDTH, 
+const startingCells = makeRandomGrid(constants.GRID_WIDTH, 
                                constants.GRID_HEIGHT,
                                0);
 
@@ -11,13 +11,7 @@ const cells  = (state = startingCells, action) => {
     case 'MAKE_GRID':
       return makeGrid(constants.GRID_WIDTH, constants.GRID_HEIGHT, 0)
     case 'MAKE_RANDOM_GRID':
-      let grid = makeGrid(constants.GRID_WIDTH, constants.GRID_HEIGHT, 0);
-      for (let i = 0; i < constants.GRID_WIDTH * constants.GRID_HEIGHT * 0.2; i++) {
-        const x = Math.floor(Math.random()*constants.GRID_WIDTH);
-        const y = Math.floor(Math.random()*constants.GRID_HEIGHT);
-        grid[y][x] = states.alive;
-      }
-      return grid;
+      return makeRandomGrid(constants.GRID_WIDTH, constants.GRID_HEIGHT, 0);
     case 'SPAWN_CELL':
       nextState[action.y][action.x] = states.born;
       return nextState;
