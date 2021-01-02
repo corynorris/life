@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/corynorris/life/static/css/main.5a5d78c4.chunk.css",
-    "main.js": "/corynorris/life/static/js/main.f81edf6b.chunk.js",
-    "main.js.map": "/corynorris/life/static/js/main.f81edf6b.chunk.js.map",
-    "runtime-main.js": "/corynorris/life/static/js/runtime-main.62580fab.js",
-    "runtime-main.js.map": "/corynorris/life/static/js/runtime-main.62580fab.js.map",
-    "static/js/2.63360aab.chunk.js": "/corynorris/life/static/js/2.63360aab.chunk.js",
-    "static/js/2.63360aab.chunk.js.map": "/corynorris/life/static/js/2.63360aab.chunk.js.map",
-    "index.html": "/corynorris/life/index.html",
-    "static/css/main.5a5d78c4.chunk.css.map": "/corynorris/life/static/css/main.5a5d78c4.chunk.css.map",
-    "static/js/2.63360aab.chunk.js.LICENSE.txt": "/corynorris/life/static/js/2.63360aab.chunk.js.LICENSE.txt"
+    "main.css": "/life/static/css/main.5a5d78c4.chunk.css",
+    "main.js": "/life/static/js/main.f81edf6b.chunk.js",
+    "main.js.map": "/life/static/js/main.f81edf6b.chunk.js.map",
+    "runtime-main.js": "/life/static/js/runtime-main.5fe5c5e3.js",
+    "runtime-main.js.map": "/life/static/js/runtime-main.5fe5c5e3.js.map",
+    "static/js/2.63360aab.chunk.js": "/life/static/js/2.63360aab.chunk.js",
+    "static/js/2.63360aab.chunk.js.map": "/life/static/js/2.63360aab.chunk.js.map",
+    "index.html": "/life/index.html",
+    "static/css/main.5a5d78c4.chunk.css.map": "/life/static/css/main.5a5d78c4.chunk.css.map",
+    "static/js/2.63360aab.chunk.js.LICENSE.txt": "/life/static/js/2.63360aab.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.62580fab.js",
+    "static/js/runtime-main.5fe5c5e3.js",
     "static/js/2.63360aab.chunk.js",
     "static/css/main.5a5d78c4.chunk.css",
     "static/js/main.f81edf6b.chunk.js"
