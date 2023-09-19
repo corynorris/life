@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 import "./Cell.css";
 
@@ -20,9 +19,6 @@ const Cell = ({ onCellClick, state }) => (
   <td onClick={onCellClick} className={getClass(state)} />
 );
 
-Cell.propTypes = {
-  onCellClick: PropTypes.func.isRequired,
-  state: PropTypes.number.isRequired
-};
+
 
 export default Cell;

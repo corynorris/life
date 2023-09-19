@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Grid from './components/Grid';
+import './App.css';
 import Controls from './components/Controls';
 import Generation from './components/Generation';
-import './App.css';
+import Grid from './components/Grid';
 
 class App extends Component {
   render() {

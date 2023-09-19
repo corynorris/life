@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { spawnCell } from "../actions";
-import PropTypes from "prop-types";
 
 import Cell from "./Cell";
 import "./Grid.css";
@@ -32,9 +31,7 @@ class Grid extends Component {
   }
 }
 
-Grid.propTypes = {
-  data: PropTypes.array
-};
+
 
 const mapStateToProps = ({ cells }) => {
   return {

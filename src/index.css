@@ -3,3 +3,8 @@ body {
   padding: 0;
   font-family: 'Rubik', sans-serif;
 }
+
+body, div, input {
+  color: #afa;
+  text-shadow: 0px 0px 1px #fff;
+}
