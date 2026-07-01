@@ -1,70 +1,50 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, { useEffect, useCallback } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import Button from "./Button";
-import { stepForward, makeGrid, makeRandomGrid, play } from "../actions";
+import { stepForward, makeGrid, makeRandomGrid } from "../slices/cellsSlice";
+import { setIntervalId } from "../slices/intervalSlice";
 
-class Controls extends Component {
-  componentDidMount() {
-    this.onPlay();
-  }
-  onPlay() {
-    if (this.props.interval === 0) {
-      const id = setInterval(this.props.onNextClick, 200);
-      this.props.onPlayClick(id);
+const Controls = () => {
+  const interval = useSelector((state) => state.interval);
+  const dispatch = useDispatch();
+
+  const onNextClick = useCallback(() => {
+    dispatch(stepForward());
+  }, [dispatch]);
+
+  const onPlayToggle = useCallback(() => {
+    if (interval === 0) {
+      const id = setInterval(onNextClick, 200);
+      dispatch(setIntervalId(id));
     } else {
-      clearInterval(this.props.interval);
-      this.props.onPlayClick(0);
+      clearInterval(interval);
+      dispatch(setIntervalId(0));
     }
-  }
+  }, [interval, onNextClick, dispatch]);
 
-  render() {
-    return (
-      <div>
-        <Button
-          message="randomize"
-          handleClick={this.props.onRandomizeClick.bind(this)}
-        />
-        <Button
-          message="reset"
-          handleClick={this.props.onResetClick.bind(this)}
-        />
-        <Button
-          message={this.props.interval ? "pause" : "play"}
-          handleClick={this.onPlay.bind(this)}
-        />
-        <Button
-          message="next"
-          handleClick={this.props.onNextClick.bind(this)}
-        />
-      </div>
-    );
-  }
-}
+  // Auto-play on mount
+  useEffect(() => {
+    const id = setInterval(() => dispatch(stepForward()), 200);
+    dispatch(setIntervalId(id));
+    return () => {
+      clearInterval(id);
+    };
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-const mapStateToProps = ({ interval }) => {
-  return {
-    interval
-  };
+  return (
+    <div>
+      <Button
+        message="randomize"
+        handleClick={() => dispatch(makeRandomGrid())}
+      />
+      <Button message="reset" handleClick={() => dispatch(makeGrid())} />
+      <Button
+        message={interval ? "pause" : "play"}
+        handleClick={onPlayToggle}
+      />
+      <Button message="next" handleClick={onNextClick} />
+    </div>
+  );
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    onPlayClick: id => {
-      dispatch(play(id));
-    },
-    onResetClick: () => {
-      dispatch(makeGrid());
-    },
-    onNextClick: () => {
-      dispatch(stepForward());
-    },
-    onRandomizeClick: () => {
-      dispatch(makeRandomGrid());
-    }
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Controls);
+export default Controls;

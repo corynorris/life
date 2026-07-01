@@ -1,53 +1,39 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { spawnCell } from "../actions";
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { spawnCell } from "../slices/cellsSlice";
 
 import Cell from "./Cell";
 import "./Grid.css";
 
-class Grid extends Component {
-  render() {
-    const rows = this.props.cells.map((row, y) => {
-      return (
-        <tr key={y}>
-          {row.map((state, x) => {
-            return (
-              <Cell
-                key={x}
-                state={this.props.cells[y][x]}
-                onCellClick={this.props.onCellClick.bind(this, x, y)}
-              />
-            );
-          })}
-        </tr>
-      );
-    });
+const Grid = () => {
+  const cells = useSelector((state) => state.cells);
+  const dispatch = useDispatch();
 
+  const handleCellClick = (x, y) => {
+    dispatch(spawnCell({ x, y }));
+  };
+
+  const rows = cells.map((row, y) => {
     return (
-      <table className="center">
-        <tbody>{rows}</tbody>
-      </table>
+      <tr key={y}>
+        {row.map((state, x) => {
+          return (
+            <Cell
+              key={x}
+              state={cells[y][x]}
+              onCellClick={() => handleCellClick(x, y)}
+            />
+          );
+        })}
+      </tr>
     );
-  }
-}
+  });
 
-
-
-const mapStateToProps = ({ cells }) => {
-  return {
-    cells
-  };
+  return (
+    <table className="center">
+      <tbody>{rows}</tbody>
+    </table>
+  );
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    onCellClick: (x, y) => {
-      dispatch(spawnCell(x, y));
-    }
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Grid);
+export default Grid;
