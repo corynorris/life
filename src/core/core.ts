@@ -4,7 +4,7 @@ export const states = {
   born: 2,
 } as const;
 
-export type CellState = (typeof states)[keyof typeof states];
+export type CellState = number;
 export type Grid = CellState[][];
 
 const range = (size: number, val: number): number[] => {
