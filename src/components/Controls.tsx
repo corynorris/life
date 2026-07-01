@@ -1,12 +1,13 @@
-import React, { useEffect, useCallback } from "react";
+import { FC, useEffect, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import type { RootState, AppDispatch } from "../store";
 import Button from "./Button";
 import { stepForward, makeGrid, makeRandomGrid } from "../slices/cellsSlice";
 import { setIntervalId } from "../slices/intervalSlice";
 
-const Controls = () => {
-  const interval = useSelector((state) => state.interval);
-  const dispatch = useDispatch();
+const Controls: FC = () => {
+  const interval = useSelector((state: RootState) => state.interval);
+  const dispatch = useDispatch<AppDispatch>();
 
   const onNextClick = useCallback(() => {
     dispatch(stepForward());
@@ -14,7 +15,7 @@ const Controls = () => {
 
   const onPlayToggle = useCallback(() => {
     if (interval === 0) {
-      const id = setInterval(onNextClick, 200);
+      const id = window.setInterval(onNextClick, 200);
       dispatch(setIntervalId(id));
     } else {
       clearInterval(interval);
@@ -24,7 +25,7 @@ const Controls = () => {
 
   // Auto-play on mount
   useEffect(() => {
-    const id = setInterval(() => dispatch(stepForward()), 200);
+    const id = window.setInterval(() => dispatch(stepForward()), 200);
     dispatch(setIntervalId(id));
     return () => {
       clearInterval(id);

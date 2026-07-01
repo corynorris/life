@@ -1,10 +1,10 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 
 const intervalSlice = createSlice({
   name: "interval",
-  initialState: 0,
+  initialState: 0 as number,
   reducers: {
-    setIntervalId(_state, action) {
+    setIntervalId(_state, action: PayloadAction<number>) {
       return action.payload;
     },
     clearIntervalId() {

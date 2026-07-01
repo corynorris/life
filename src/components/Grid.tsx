@@ -1,15 +1,17 @@
-import React from "react";
+import { FC } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { spawnCell } from "../slices/cellsSlice";
+import type { RootState, AppDispatch } from "../store";
+import type { Grid as GridType } from "../core/core";
 
 import Cell from "./Cell";
 import "./Grid.css";
 
-const Grid = () => {
-  const cells = useSelector((state) => state.cells);
-  const dispatch = useDispatch();
+const Grid: FC = () => {
+  const cells = useSelector((state: RootState) => state.cells) as GridType;
+  const dispatch = useDispatch<AppDispatch>();
 
-  const handleCellClick = (x, y) => {
+  const handleCellClick = (x: number, y: number) => {
     dispatch(spawnCell({ x, y }));
   };
 

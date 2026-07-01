@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const generationsSlice = createSlice({
   name: "generations",
-  initialState: 0,
+  initialState: 0 as number,
   reducers: {},
   extraReducers: (builder) => {
     builder

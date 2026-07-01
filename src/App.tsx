@@ -1,4 +1,3 @@
-import React from "react";
 import "./App.css";
 import Controls from "./components/Controls";
 import Generation from "./components/Generation";
