@@ -1,20 +1,17 @@
 {
-  "homepage": "https://corynorris.github.com/life",
   "name": "game-of-life",
-  "version": "1.0.0",
-  "private": false,
+  "version": "2.0.0",
+  "private": true,
   "devDependencies": {
     "gh-pages": "^6.0.0"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.2.0",
     "@vitejs/plugin-react-swc": "^3.3.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.1.2",
-    "redux": "^4.2.1",
-    "vite": "^4.4.9",
-    "vite-plugin-svgr": "^3.2.0",
-    "vite-tsconfig-paths": "^4.2.1"
+    "vite": "^4.4.9"
   },
   "scripts": {
     "start": "vite",
