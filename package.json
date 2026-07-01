@@ -37,6 +37,9 @@
     "lint": "eslint .",
     "lint:fix": "eslint --fix ."
   },
+  "pnpm": {
+    "onlyBuiltDependencies": ["@swc/core", "esbuild"]
+  },
   "browserslist": [
     ">0.2%",
     "not dead",
