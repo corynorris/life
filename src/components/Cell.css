@@ -1,3 +1,4 @@
+/* ── Life (Conway) ─────────────────────────────── */
 .born {
   background-color: #2ecc71;
 }
@@ -6,8 +7,41 @@
   background-color: #16a085;
 }
 
+/* ── Brian's Brain ─────────────────────────────── */
+.bb-off {
+  background-color: #2c3e50;
+}
+
+.bb-on {
+  background-color: #e74c3c;
+}
+
+.bb-dying {
+  background-color: #3498db;
+}
+
+/* ── Langton's Ant ─────────────────────────────── */
+.ant {
+  background-color: #e74c3c;
+}
+
+.ant-alive {
+  background-color: #1a1a2e;
+}
+
+/* ── 1D CA ─────────────────────────────────────── */
+.ca-alive {
+  background-color: #27ae60;
+}
+
+/* ── Dead (shared) ─────────────────────────────── */
+.dead {
+  background-color: #ecf0f1;
+}
+
+/* ── Cell sizing via CSS custom property ───────── */
 td {
-  width: 15px;
-  height: 15px;
+  width: var(--cell-size, 15px);
+  height: var(--cell-size, 15px);
   caret-color: transparent;
 }
