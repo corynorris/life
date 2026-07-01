@@ -1,11 +1,13 @@
-.App, p, button  {
+.App,
+p,
+button {
   text-align: center;
   font-weight: 300;
   letter-spacing: -1.6px;
 }
 
-button  {
-  font-family: 'Open Sans', sans-serif;
+button {
+  font-family: "Open Sans", sans-serif;
   font-weight: 500;
   font-size: 15px;
   letter-spacing: 0.5px;
@@ -16,11 +18,10 @@ button  {
 button:hover {
   color: #27ae60;
   cursor: pointer;
-
 }
 
-button:focus{
-    outline: none;
+button:focus {
+  outline: none;
 }
 
 h1 {
@@ -28,4 +29,3 @@ h1 {
   letter-spacing: -1.6px;
   color: #27ae60;
 }
-

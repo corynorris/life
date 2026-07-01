@@ -2,17 +2,20 @@ export const states = {
   dead: 0,
   alive: 1,
   born: 2,
-}
+} as const;
 
-const range = (size, val) => {
+export type CellState = (typeof states)[keyof typeof states];
+export type Grid = CellState[][];
+
+const range = (size: number, val: number): number[] => {
   return Array(size).fill(val);
-}
+};
 
-export function isAlive(grid, x, y) {
+export function isAlive(grid: Grid, x: number, y: number): boolean {
   return grid[y][x] !== states.dead;
 }
 
-export function countNeighbours(grid, x, y) {
+export function countNeighbours(grid: Grid, x: number, y: number): number {
   const startX = Math.max(x - 1, 0);
   const startY = Math.max(y - 1, 0);
   const endX = Math.min(x + 1, grid[0].length - 1);
@@ -28,15 +31,21 @@ export function countNeighbours(grid, x, y) {
   return count;
 }
 
-export function makeGrid(width, height, val = 0) {
-  return range(height, val).map((col) => {
-    return range(width, val).map((row) => {
-      return val;
-    })
-  })
+export function makeGrid(
+  width: number,
+  height: number,
+  val: CellState = states.dead,
+): Grid {
+  return range(height, val).map(() => {
+    return range(width, val).map(() => val) as CellState[];
+  });
 }
 
-export function makeRandomGrid(width, height, val = 0) {
+export function makeRandomGrid(
+  width: number,
+  height: number,
+  val: CellState = states.dead,
+): Grid {
   const grid = makeGrid(width, height, val);
   for (let i = 0; i < width * height * 0.2; i++) {
     const x = Math.floor(Math.random() * width);
@@ -46,17 +55,18 @@ export function makeRandomGrid(width, height, val = 0) {
   return grid;
 }
 
-
-export function updateGrid(grid) {
+export function updateGrid(grid: Grid): Grid {
   const width = grid[0].length;
   const height = grid.length;
-  let neighboursGrid = makeGrid(width, height, 0);
-
-
+  const neighboursGrid: number[][] = makeGrid(
+    width,
+    height,
+    states.dead,
+  ) as number[][];
 
   for (let y = 0; y < height; y++) {
     for (let x = 0; x < width; x++) {
-      neighboursGrid[y][x] = countNeighbours(grid, x, y);
+      neighboursGrid[y][x] = countNeighbours(grid, x, y) as CellState;
     }
   }
 
@@ -67,14 +77,13 @@ export function updateGrid(grid) {
         grid[y][x] = states.alive;
       }
 
-      // Change behaviour based on neighbours      
+      // Change behaviour based on neighbours
       const neighbours = neighboursGrid[y][x];
       if (neighbours === 0 || neighbours === 1 || neighbours > 3) {
         grid[y][x] = states.dead;
       } else if (neighbours === 3 && grid[y][x] !== states.alive) {
         grid[y][x] = states.born;
       }
-
     }
   }
   return grid;
