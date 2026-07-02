@@ -2,181 +2,184 @@
 .App,
 p,
 button {
-  text-align: center;
-  font-weight: 300;
-  letter-spacing: -1.6px;
+	text-align: center;
+	font-weight: 300;
+	letter-spacing: -1.6px;
 }
 
 button {
-  font-family: "Open Sans", sans-serif;
-  font-weight: 500;
-  font-size: 15px;
-  letter-spacing: 0.5px;
-  background: none;
-  border: none;
+	font-family: "Open Sans", sans-serif;
+	font-weight: 500;
+	font-size: 15px;
+	letter-spacing: 0.5px;
+	background: none;
+	border: none;
 }
 
 button:hover {
-  color: #27ae60;
-  cursor: pointer;
+	color: #27ae60;
+	cursor: pointer;
 }
 
 button:focus {
-  outline: none;
+	outline: none;
 }
 
 h1 {
-  font-weight: 300;
-  letter-spacing: -1.6px;
-  color: #27ae60;
-  margin-bottom: 8px;
+	font-weight: 300;
+	letter-spacing: -1.6px;
+	color: #27ae60;
+	margin-bottom: 8px;
 }
 
 /* ── Simulation tab bar ───────────────────────── */
 .sim-tabs {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 4px;
-  margin: 0 auto 12px;
-  max-width: 700px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 4px;
+	margin: 0 auto 12px;
+	max-width: 700px;
 }
 
 .sim-tab {
-  font-size: 13px;
-  padding: 5px 10px;
-  border: 1px solid #bdc3c7;
-  border-radius: 6px;
-  background: #fff;
-  color: #555;
-  white-space: nowrap;
-  transition: background 0.15s, border-color 0.15s, color 0.15s;
+	font-size: 13px;
+	padding: 5px 10px;
+	border: 1px solid #bdc3c7;
+	border-radius: 6px;
+	background: #fff;
+	color: #555;
+	white-space: nowrap;
+	transition:
+		background 0.15s,
+		border-color 0.15s,
+		color 0.15s;
 }
 
 .sim-tab:hover {
-  border-color: #27ae60;
-  color: #27ae60;
+	border-color: #27ae60;
+	color: #27ae60;
 }
 
 .sim-tab.active {
-  background: #27ae60;
-  border-color: #27ae60;
-  color: #fff;
+	background: #27ae60;
+	border-color: #27ae60;
+	color: #fff;
 }
 
 .sim-tab-badge {
-  display: inline-block;
-  font-size: 10px;
-  font-weight: 600;
-  text-transform: uppercase;
-  background: #ecf0f1;
-  color: #7f8c8d;
-  border-radius: 3px;
-  padding: 0 4px;
-  margin-right: 5px;
-  vertical-align: middle;
+	display: inline-block;
+	font-size: 10px;
+	font-weight: 600;
+	text-transform: uppercase;
+	background: #ecf0f1;
+	color: #7f8c8d;
+	border-radius: 3px;
+	padding: 0 4px;
+	margin-right: 5px;
+	vertical-align: middle;
 }
 
 .sim-tab.active .sim-tab-badge {
-  background: rgba(255, 255, 255, 0.3);
-  color: #fff;
+	background: rgba(255, 255, 255, 0.3);
+	color: #fff;
 }
 
 /* ── Controls row ─────────────────────────────── */
 .controls-row {
-  margin: 8px 0 4px;
+	margin: 8px 0 4px;
 }
 
 .controls-row button {
-  margin: 0 2px;
+	margin: 0 2px;
 }
 
 /* ── Grid size row ────────────────────────────── */
 .grid-size-row {
-  margin: 8px 0 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
+	margin: 8px 0 12px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 4px;
 }
 
 .grid-size-label {
-  font-size: 13px;
-  color: #95a5a6;
-  margin-right: 4px;
+	font-size: 13px;
+	color: #95a5a6;
+	margin-right: 4px;
 }
 
 .size-btn {
-  font-size: 12px;
-  padding: 3px 8px;
-  border: 1px solid #bdc3c7;
-  border-radius: 4px;
-  background: #fff;
-  color: #555;
+	font-size: 12px;
+	padding: 3px 8px;
+	border: 1px solid #bdc3c7;
+	border-radius: 4px;
+	background: #fff;
+	color: #555;
 }
 
 .size-btn:hover {
-  border-color: #27ae60;
-  color: #27ae60;
+	border-color: #27ae60;
+	color: #27ae60;
 }
 
 .size-btn.active {
-  background: #27ae60;
-  border-color: #27ae60;
-  color: #fff;
+	background: #27ae60;
+	border-color: #27ae60;
+	color: #fff;
 }
 
 .size-dims {
-  font-size: 10px;
-  color: #95a5a6;
-  margin-left: 4px;
+	font-size: 10px;
+	color: #95a5a6;
+	margin-left: 4px;
 }
 
 .size-btn.active .size-dims {
-  color: rgba(255, 255, 255, 0.7);
+	color: rgba(255, 255, 255, 0.7);
 }
 
 /* ── Simulation info panel ────────────────────── */
 .sim-info {
-  max-width: 500px;
-  margin: 16px auto 0;
-  padding: 12px 16px;
-  background: #f8f9fa;
-  border-radius: 8px;
-  border: 1px solid #ecf0f1;
-  text-align: left;
+	max-width: 500px;
+	margin: 16px auto 0;
+	padding: 12px 16px;
+	background: #f8f9fa;
+	border-radius: 8px;
+	border: 1px solid #ecf0f1;
+	text-align: left;
 }
 
 .sim-info-desc {
-  font-size: 14px;
-  color: #2c3e50;
-  line-height: 1.5;
-  margin: 0 0 8px;
-  letter-spacing: 0;
+	font-size: 14px;
+	color: #2c3e50;
+	line-height: 1.5;
+	margin: 0 0 8px;
+	letter-spacing: 0;
 }
 
 .sim-info-rules {
-  font-size: 13px;
-  color: #7f8c8d;
-  margin: 0 0 6px;
-  letter-spacing: 0;
+	font-size: 13px;
+	color: #7f8c8d;
+	margin: 0 0 6px;
+	letter-spacing: 0;
 }
 
 .sim-info-rules strong {
-  color: #2c3e50;
+	color: #2c3e50;
 }
 
 .sim-info-link {
-  font-size: 13px;
-  margin: 0;
-  letter-spacing: 0;
+	font-size: 13px;
+	margin: 0;
+	letter-spacing: 0;
 }
 
 .sim-info-link a {
-  color: #27ae60;
-  text-decoration: none;
+	color: #27ae60;
+	text-decoration: none;
 }
 
 .sim-info-link a:hover {
-  text-decoration: underline;
+	text-decoration: underline;
 }

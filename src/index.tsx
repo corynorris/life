@@ -6,9 +6,9 @@ import "./index.css";
 
 const rootElement = document.getElementById("root");
 if (rootElement) {
-  createRoot(rootElement).render(
-    <Provider store={store}>
-      <App />
-    </Provider>,
-  );
+	createRoot(rootElement).render(
+		<Provider store={store}>
+			<App />
+		</Provider>,
+	);
 }
